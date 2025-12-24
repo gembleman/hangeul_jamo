@@ -19,7 +19,7 @@ Usage:
     jamos = decompose('한글')  # -> [('ㅎ', 'ㅏ', 'ㄴ'), ('ㄱ', 'ㅡ', 'ㄹ')]
 """
 
-__version__ = "1.0.0"
+__version__ = "0.1.0"
 
 # Try to import Rust implementation first (if installed)
 # Fall back to pure Python implementation otherwise
@@ -27,10 +27,12 @@ _implementation = "unknown"
 
 try:
     from hangeul_jamo_rs import *  # noqa: F401, F403
+
     _implementation = "rust"
 except ImportError:
     try:
         from hangeul_jamo_py import *  # noqa: F401, F403
+
         _implementation = "python"
     except ImportError as e:
         raise ImportError(
