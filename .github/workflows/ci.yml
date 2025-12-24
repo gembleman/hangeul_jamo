@@ -9,10 +9,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
         python-version: ["3.13"]
+        extras: ["", "[rust]"]
 
     steps:
     - uses: actions/checkout@v4
@@ -29,7 +31,7 @@ jobs:
 
     - name: Install dependencies
       run: |
-        uv pip install --system -e .
+        uv pip install --system -e .${{ matrix.extras }}
 
     - name: Build package
       run: |
@@ -42,5 +44,5 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: dist-${{ matrix.python-version }}
+        name: dist-${{ matrix.os }}-${{ matrix.python-version }}-${{ matrix.extras }}
         path: dist/
