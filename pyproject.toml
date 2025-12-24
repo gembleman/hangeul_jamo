@@ -1,6 +1,6 @@
 [project]
 name = "hangeul-jamo"
-version = "1.0.0"
+version = "0.1.0"
 description = "Korean Hangul syllable and jamo manipulation library (meta-package)"
 readme = "README.md"
 authors = [{ name = "hangeul-jamo contributors" }]
@@ -20,7 +20,7 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-rust = ["hangeul-jamo-rs"]
+rust = ["hangeul-jamo-rs>=0.1.0"]
 
 [project.urls]
 Repository = "https://github.com/gembleman/hangeul_jamo"
