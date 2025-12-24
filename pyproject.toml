@@ -5,9 +5,7 @@ description = "Korean Hangul syllable and jamo manipulation library (meta-packag
 readme = "README.md"
 authors = [{ name = "hangeul-jamo contributors" }]
 requires-python = ">=3.13"
-dependencies = [
-    "hangeul-jamo-py @ git+https://github.com/gembleman/hangeul_jamo_py.git",
-]
+dependencies = ["hangeul-jamo-py"]
 keywords = ["korean", "hangul", "jamo", "nlp", "korean-language"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -21,6 +19,9 @@ classifiers = [
 
 [project.optional-dependencies]
 rust = ["hangeul-jamo-rs>=0.1.0"]
+
+[tool.uv.sources]
+hangeul_jamo_py = { path = "git+https://github.com/gembleman/hangeul_jamo_py.git" }
 
 [project.urls]
 Repository = "https://github.com/gembleman/hangeul_jamo"
