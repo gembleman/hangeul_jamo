@@ -25,6 +25,9 @@ rust = ["hangeul-jamo-rs>=0.1.0"]
 [project.urls]
 Repository = "https://github.com/gembleman/hangeul_jamo"
 
+[tool.hatch.metadata]
+allow-direct-references = true
+
 [build-system]
 requires = ["uv_build>=0.9.18,<0.10.0"]
 build-backend = "uv_build"
