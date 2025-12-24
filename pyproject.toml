@@ -21,7 +21,7 @@ classifiers = [
 rust = ["hangeul-jamo-rs>=0.1.0"]
 
 [tool.uv.sources]
-hangeul_jamo_py = { path = "git+https://github.com/gembleman/hangeul_jamo_py.git" }
+hangeul_jamo_py = { git = "https://github.com/gembleman/hangeul_jamo_py.git" }
 
 [project.urls]
 Repository = "https://github.com/gembleman/hangeul_jamo"
