@@ -3,9 +3,7 @@ name = "hangeul-jamo"
 version = "1.0.0"
 description = "Korean Hangul syllable and jamo manipulation library (meta-package)"
 readme = "README.md"
-authors = [
-    { name = "gembleman", email = "81058727+gembleman@users.noreply.github.com" },
-]
+authors = [{ name = "hangeul-jamo contributors" }]
 requires-python = ">=3.13"
 dependencies = [
     "hangeul-jamo-py @ git+https://github.com/gembleman/hangeul_jamo_py.git",
@@ -22,17 +20,11 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-rust = [
-    "hangeul-jamo-rs @ git+https://github.com/gembleman/hangeul_jamo_rs.git",
-]
+rust = ["hangeul-jamo-rs"]
 
 [project.urls]
 Repository = "https://github.com/gembleman/hangeul_jamo"
 
-[tool.hatch.metadata]
-allow-direct-references = true
-
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
-
