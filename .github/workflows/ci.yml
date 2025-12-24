@@ -40,9 +40,3 @@ jobs:
     - name: Test import
       run: |
         python -c "import hangeul_jamo; print(f'Version: {hangeul_jamo.__version__}'); print(f'Implementation: {hangeul_jamo._implementation}')"
-
-    - name: Upload build artifacts
-      uses: actions/upload-artifact@v4
-      with:
-        name: dist-${{ matrix.os }}-${{ matrix.python-version }}-${{ matrix.extras }}
-        path: dist/
