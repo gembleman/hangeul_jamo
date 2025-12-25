@@ -53,7 +53,7 @@ The API is identical regardless of which backend is installed.
 
 ### hangeul-jamo-rs (Rust)
 
-- ✅ 10-100x faster performance
+- ✅ 2-5x faster performance than python implementation
 - ✅ Memory efficient
 - ✅ Type-safe Rust implementation
 
@@ -74,10 +74,20 @@ print(f"Using {_implementation} implementation")
 
 ## Performance Comparison
 
-| Operation | Python | Rust  | Speedup     |
-| --------- | ------ | ----- | ----------- |
-| Compose   | 1.0x   | ~50x  | 50x faster  |
-| Decompose | 1.0x   | ~100x | 100x faster |
+### 📊 Performance Ratio Analysis (vs slowest)
+
+| Category                  | Slowest     | jamo            | hangul-jamo     | hangeul_jamo_py | hangeul_jamo_rs |
+| ------------------------- | ----------- | --------------- | --------------- | --------------- | --------------- |
+| Single Syllable Decompose | jamo        | 1.00x (slowest) | 2.15x faster    | 3.33x faster    | 7.91x faster    |
+| Short Text Decompose      | jamo        | 1.00x (slowest) | 1.33x faster    | 4.58x faster    | 14.62x faster   |
+| Medium Text Decompose     | jamo        | 1.00x (slowest) | 1.16x faster    | 5.24x faster    | 31.05x faster   |
+| Large Text Decompose      | jamo        | 1.00x (slowest) | 1.12x faster    | 6.81x faster    | 36.92x faster   |
+| Single Syllable Compose   | jamo        | 1.00x (slowest) | 39.01x faster   | 26.69x faster   | 52.54x faster   |
+| Short Text Compose        | hangul-jamo | N/A             | 1.00x (slowest) | 4.63x faster    | 32.52x faster   |
+| Validation Syllable       | hangul-jamo | 1.25x faster    | 1.00x (slowest) | 1.24x faster    | 1.81x faster    |
+| Roundtrip                 | hangul-jamo | N/A             | 1.00x (slowest) | 4.32x faster    | 22.03x faster   |
+
+Source by [hangeul_jamo_benchmark](https://github.com/gembleman/hangeul_jamo_benchmark)
 
 ## Contributing
 
